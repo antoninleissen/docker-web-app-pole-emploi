@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+#################
+#     FRONT     #
+#################
+
+    http-front:
+        image: nginx:latest
+        ports:
+            - "80:80"
+        volumes:
+            - ../front:/var/www/front
+            - ../front/front.conf:/etc/nginx/conf.d/default.conf
+        networks:
+            - poleemploi
+networks:
+    poleemploi:
+        external: true
